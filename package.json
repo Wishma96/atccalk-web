@@ -1,0 +1,39 @@
+{
+  "name": "atccalk-web",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "node app.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.23",
+    "lucide-react": "^0.562.0",
+    "next": "^16.1.1",
+    "postcss": "^8.5.10",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
+    "react-toastify": "^11.0.5",
+    "remark-gfm": "^4.0.1",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.65.1",
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.1"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
+  }
+}

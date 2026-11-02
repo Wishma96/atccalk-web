@@ -9,7 +9,7 @@ type Props = {
   tourTitle: string;
   tourLocation?: string;
   tourDuration?: string;
-  whatsappNumber?: string; // e.g. +94783619000
+  whatsappNumber?: string; // e.g. +94763862035
   variant?: 'inline' | 'sticky';
 };
 
@@ -17,7 +17,7 @@ export default function TourQuoteModal({
   tourTitle,
   tourLocation,
   tourDuration,
-  whatsappNumber = '+94783619000',
+  whatsappNumber = '+94763862035',
   variant = 'inline',
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);

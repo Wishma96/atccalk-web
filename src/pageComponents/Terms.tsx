@@ -211,7 +211,10 @@ const Terms = () => {
                             Email: <a className="cursor-pointer" href="mailto:atccqpik@gmail.com">atccqpik@gmail.com</a>
                           </li>
                           <li>
-                            Phone: <a className="cursor-pointer" href="tel:+94114334334">+94 11 433 4334</a>
+                            Email: <a className="cursor-pointer" href="mailto:info@atccalk.com">info@atccalk.com</a>
+                          </li>
+                          <li>
+                            Phone: <a className="cursor-pointer" href="tel:+94773619000">+94 77 361 9000</a>
                           </li>
                           <li>Address: No. 230A, Palagathura, Negombo.</li>
                         </ul>

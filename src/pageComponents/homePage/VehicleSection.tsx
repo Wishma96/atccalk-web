@@ -265,14 +265,19 @@ Model: ${vehicle?.models || 'Not specified'}
               </form>
 
               <div className="mt-6 flex items-center justify-center gap-6 text-sm text-gray-500 dark:text-gray-400">
-                <a href="tel:+94710489000" className="flex items-center gap-2 hover:text-primary">
+                <a href="tel:+94773619000" className="flex items-center gap-2 hover:text-primary">
                   <Phone className="w-4 h-4" />
-                  Office +94 11 433 4334
+                  Office +94 77 361 9000
                 </a>
                 <span>|</span>
                 <a href="mailto:atccqpik@gmail.com" className="flex items-center gap-2 hover:text-primary">
                   <Mail className="w-4 h-4" />
                   atccqpik@gmail.com
+                </a>
+                <span>|</span>
+                <a href="mailto:info@atccalk.com" className="flex items-center gap-2 hover:text-primary">
+                  <Mail className="w-4 h-4" />
+                  info@atccalk.com
                 </a>
               </div>
             </div>

@@ -418,12 +418,16 @@ const TailorMadeTours = () => {
               <div className="mt-8 text-center">
                 <p className="text-gray-600 dark:text-gray-400">
                   Need help or have questions? Contact us at{' '}
-                  <a href="tel:+94114334334" className="text-primary hover:text-primary-dark dark:hover:text-primary-light font-medium transition-colors">
-                    +94 11 433 4334
+                  <a href="tel:+94773619000" className="text-primary hover:text-primary-dark dark:hover:text-primary-light font-medium transition-colors">
+                    +94 77 361 9000
                   </a>
                   {' '}or{' '}
                   <a href="mailto:atccqpik@gmail.com" className="text-primary hover:text-primary-dark dark:hover:text-primary-light font-medium transition-colors">
                     atccqpik@gmail.com
+                  </a>
+                  {' '}or{' '}
+                  <a href="mailto:info@atccalk.com" className="text-primary hover:text-primary-dark dark:hover:text-primary-light font-medium transition-colors">
+                    info@atccalk.com
                   </a>
                 </p>
               </div>

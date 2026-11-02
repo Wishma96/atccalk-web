@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { FaWhatsapp } from 'react-icons/fa';
 
-const whatsappNumber = '94783619000';
-const defaultMessage = encodeURIComponent("Hello ATCCA team, I'd like to learn more about your tour packages.");
+const whatsappNumber = '94763862035';
+const defaultMessage = encodeURIComponent('Hello ATCCA, I would like to inquire about your travel services.');
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
 
 const WhatsAppButton = () => {

@@ -31,12 +31,13 @@ const Footer = () => {
                  { icon: Twitter, href: '#twitter' },
                  { icon: Instagram, href: '#instagram' },
                  { icon: Youtube, href: '#youtube' },
-                 {  icon: FaWhatsapp, href: '#whatsapp'},
-                 {  icon: FaTripadvisor, href: '#tripadvisor'},
+                 { icon: FaWhatsapp, href: 'https://wa.me/94763862035?text=' + encodeURIComponent('Hello ATCCA, I would like to inquire about your travel services.'), external: true },
+                 { icon: FaTripadvisor, href: '#tripadvisor' },
               ].map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
+                  {...(social.external ? { target: '_blank', rel: 'noreferrer' } : {})}
                   className="text-[#1EAEDB] hover:text-[#33C3F0] transition-colors"
                 >
                   <social.icon className="w-5 h-5" />
@@ -129,17 +130,19 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-5 h-5 text-[#1EAEDB]" />
-                <a href="mailto:atccqpik@gmail.com" className="text-gray-400 hover:text-white transition-colors text-base">
-                  atccqpik@gmail.com
-                </a>
+                <div className="space-y-1">
+                  <a href="mailto:atccqpik@gmail.com" className="block text-gray-400 hover:text-white transition-colors text-base">
+                    atccqpik@gmail.com
+                  </a>
+                  <a href="mailto:info@atccalk.com" className="block text-gray-400 hover:text-white transition-colors text-base">
+                    info@atccalk.com
+                  </a>
+                </div>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-5 h-5 text-[#1EAEDB]" />
                 <div className="space-y-1">
-                  <a href="tel:+94114334334" className="block text-gray-400 hover:text-white transition-colors text-base">+94 11 433 4334</a>
-                  <a href="tel:+94114734334" className="block text-gray-400 hover:text-white transition-colors text-base">+94 11 473 4334</a>
                   <a href="tel:+94773619000" className="block text-gray-400 hover:text-white transition-colors text-base">+94 77 361 9000</a>
-                  <a href="tel:+94783619000" className="block text-gray-400 hover:text-white transition-colors text-base">+94 78 361 9000</a>
                 </div>
               </div>
             </div>

@@ -2,9 +2,14 @@
 
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, User, Globe, MessageSquare } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import AnimatedSection from '@/components/AnimatedSection';
 import { sendEmail } from '../services/emailService';
 import PageHero from '@/components/PageHero';
+
+const whatsappLink =
+  'https://wa.me/94763862035?text=' +
+  encodeURIComponent('Hello ATCCA, I would like to inquire about your travel services.');
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -91,28 +96,10 @@ const ContactUs = () => {
                       <div className="text-lg font-semibold text-gray-900 dark:text-white">Phone</div>
                       <div className="mt-2 space-y-1">
                         <a
-                          href="tel:+94114334334"
-                          className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors cursor-pointer"
-                        >
-                          +94 11 433 4334
-                        </a>
-                        <a
-                          href="tel:+94114734334"
-                          className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors cursor-pointer"
-                        >
-                          +94 11 473 4334
-                        </a>
-                        <a
                           href="tel:+94773619000"
                           className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors cursor-pointer"
                         >
                           +94 77 361 9000
-                        </a>
-                        <a
-                          href="tel:+94783619000"
-                          className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors cursor-pointer"
-                        >
-                          +94 78 361 9000
                         </a>
                       </div>
                     </div>
@@ -126,11 +113,38 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <div className="text-lg font-semibold text-gray-900 dark:text-white">Email</div>
+                      <div className="mt-2 space-y-1">
+                        <a
+                          href="mailto:atccqpik@gmail.com"
+                          className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors cursor-pointer"
+                        >
+                          atccqpik@gmail.com
+                        </a>
+                        <a
+                          href="mailto:info@atccalk.com"
+                          className="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors cursor-pointer"
+                        >
+                          info@atccalk.com
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl bg-white dark:bg-white/5 border border-gray-200/70 dark:border-white/10 p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="shrink-0 inline-flex items-center justify-center h-12 w-12 rounded-2xl bg-primary/10 dark:bg-white/10">
+                      <FaWhatsapp className="w-6 h-6 text-primary dark:text-white" />
+                    </div>
+                    <div>
+                      <div className="text-lg font-semibold text-gray-900 dark:text-white">WhatsApp</div>
                       <a
-                        href="mailto:atccqpik@gmail.com"
+                        href={whatsappLink}
+                        target="_blank"
+                        rel="noreferrer"
                         className="mt-2 inline-block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors cursor-pointer"
                       >
-                        atccqpik@gmail.com
+                        +94 76 386 2035
                       </a>
                     </div>
                   </div>

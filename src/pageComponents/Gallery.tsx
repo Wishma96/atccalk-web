@@ -6,102 +6,150 @@ import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
 import PageHero from '@/components/PageHero';
 
+type GalleryImage = {
+  id: number;
+  src: string;
+  alt?: string;
+};
 
+const DEFAULT_GALLERY_ALT = 'ATCCA Sri Lanka travel gallery photo';
 
-const galleryImages = [
-  { id: 1, src: '/assets/images/gallery/1.jpg' },
-  { id: 2, src: '/assets/images/gallery/2.jpg' },
-  { id: 3, src: '/assets/images/gallery/3.jpg' },
-  { id: 4, src: '/assets/images/gallery/4.jpg' },
-  { id: 5, src: '/assets/images/gallery/5.jpg' },
-  { id: 6, src: '/assets/images/gallery/6.jpg' },
-  { id: 7, src: '/assets/images/gallery/7.jpg' },
-  { id: 8, src: '/assets/images/gallery/8.jpg' },
-  { id: 9, src: '/assets/images/gallery/9.jpg' },
-  { id: 10, src: '/assets/images/gallery/10.jpg' },
-  { id: 11, src: '/assets/images/gallery/11.jpg' },
-  { id: 12, src: '/assets/images/gallery/12.jpg' },
-  { id: 13, src: '/assets/images/gallery/13.jpg' },
-  { id: 14, src: '/assets/images/gallery/14.jpg' },
-  { id: 15, src: '/assets/images/gallery/15.jpg' },
-  { id: 16, src: '/assets/images/gallery/16.jpg' },
-  { id: 17, src: '/assets/images/gallery/17.jpg' },
-  { id: 18, src: '/assets/images/gallery/18.jpg' },
-  { id: 19, src: '/assets/images/gallery/19.jpg' },
-  { id: 20, src: '/assets/images/gallery/20.jpg' },
-  { id: 21, src: '/assets/images/gallery/21.jpg' },
-  { id: 22, src: '/assets/images/gallery/22.webp' },
-  { id: 23, src: '/assets/images/gallery/23.webp' },
-  { id: 24, src: '/assets/images/gallery/24.webp' },
-  { id: 25, src: '/assets/images/gallery/25.jpeg' },
-  { id: 26, src: '/assets/images/gallery/26.jpeg' },
-  { id: 27, src: '/assets/images/gallery/27.jpeg' },
-  { id: 28, src: '/assets/images/gallery/28.jpeg' },
-  { id: 29, src: '/assets/images/gallery/29.jpeg' },
-  { id: 30, src: '/assets/images/gallery/30.jpeg' },
-  { id: 31, src: '/assets/images/gallery/31.jpeg' },
-  { id: 32, src: '/assets/images/gallery/32.jpeg' },
-  { id: 33, src: '/assets/images/gallery/33.jpeg' },
-  { id: 34, src: '/assets/images/gallery/34.jpeg' },
-  { id: 35, src: '/assets/images/gallery/35.jpeg' },
-  { id: 36, src: '/assets/images/gallery/36.jpeg' },
-  { id: 37, src: '/assets/images/gallery/37.jpeg' },
-  { id: 38, src: '/assets/images/gallery/38.jpeg' },
-  { id: 39, src: '/assets/images/gallery/39.jpeg' },
-  { id: 40, src: '/assets/images/gallery/40.jpeg' },
-  { id: 41, src: '/assets/images/gallery/41.jpeg' },
-  { id: 42, src: '/assets/images/gallery/42.jpeg' },
-  { id: 43, src: '/assets/images/gallery/43.jpeg' },
-  { id: 44, src: '/assets/images/gallery/44.jpeg' },
-  { id: 45, src: '/assets/images/gallery/45.jpeg' },
-  { id: 46, src: '/assets/images/gallery/46.jpeg' },
-  { id: 47, src: '/assets/images/gallery/47.jpeg' },
-  { id: 48, src: '/assets/images/gallery/48.jpeg' },
-  { id: 49, src: '/assets/images/gallery/49.jpeg' },
-  { id: 50, src: '/assets/images/gallery/50.jpeg' },
-  { id: 51, src: '/assets/images/gallery/51.jpeg' },
-  { id: 52, src: '/assets/images/gallery/52.jpeg' },
-  { id: 53, src: '/assets/images/gallery/53.jpeg' },
-  { id: 54, src: '/assets/images/gallery/54.jpeg' },
-  { id: 55, src: '/assets/images/gallery/55.jpeg' },
-  { id: 56, src: '/assets/images/gallery/56.jpeg' },
-  { id: 57, src: '/assets/images/gallery/57.jpeg' },
-  { id: 58, src: '/assets/images/gallery/58.jpeg' },
-  { id: 59, src: '/assets/images/gallery/59.jpeg' },
-  { id: 60, src: '/assets/images/gallery/60.jpeg' },
-  { id: 61, src: '/assets/images/gallery/61.jpeg' },
-  { id: 62, src: '/assets/images/gallery/62.jpeg' },
-  { id: 63, src: '/assets/images/gallery/63.jpeg' },
-  { id: 64, src: '/assets/images/gallery/64.jpeg' },
-  { id: 65, src: '/assets/images/gallery/65.jpeg' },
-  { id: 66, src: '/assets/images/gallery/66.jpeg' },
-  { id: 67, src: '/assets/images/gallery/67.jpeg' },
-  { id: 68, src: '/assets/images/gallery/68.jpeg' },
-  { id: 69, src: '/assets/images/gallery/69.jpeg' },
-  { id: 70, src: '/assets/images/gallery/70.jpeg' },
-  { id: 71, src: '/assets/images/gallery/71.jpeg' },
-  { id: 72, src: '/assets/images/gallery/72.jpeg' },
-  { id: 73, src: '/assets/images/gallery/sri-lanka-tour-01.jpeg' },
-  { id: 74, src: '/assets/images/gallery/sri-lanka-tour-02.jpeg' },
-  { id: 75, src: '/assets/images/gallery/sri-lanka-tour-03.jpeg' },
-  { id: 76, src: '/assets/images/gallery/sri-lanka-tour-04.jpeg' },
-  { id: 77, src: '/assets/images/gallery/sri-lanka-tour-05.jpeg' },
-  { id: 78, src: '/assets/images/gallery/sri-lanka-tour-06.jpeg' },
-  { id: 79, src: '/assets/images/gallery/sri-lanka-tour-07.jpeg' },
-  { id: 80, src: '/assets/images/gallery/sri-lanka-tour-08.jpeg' },
-  { id: 81, src: '/assets/images/gallery/sri-lanka-tour-09.jpeg' },
-  { id: 82, src: '/assets/images/gallery/sri-lanka-tour-10.jpeg' },
-  { id: 83, src: '/assets/images/gallery/sri-lanka-tour-11.jpeg' },
-  { id: 84, src: '/assets/images/gallery/sri-lanka-tour-12.jpeg' },
-  { id: 85, src: '/assets/images/gallery/sri-lanka-tour-13.jpeg' },
-  { id: 86, src: '/assets/images/gallery/sri-lanka-tour-14.jpeg' },
-  { id: 87, src: '/assets/images/gallery/sri-lanka-tour-15.jpeg' },
-  { id: 88, src: '/assets/images/gallery/sri-lanka-tour-16.jpeg' },
-  { id: 89, src: '/assets/images/gallery/sri-lanka-tour-17.jpeg' },
-  { id: 90, src: '/assets/images/gallery/sri-lanka-tour-18.jpeg' },
-  { id: 91, src: '/assets/images/gallery/sri-lanka-tour-19.jpeg' },
-  { id: 92, src: '/assets/images/gallery/sri-lanka-tour-20.jpeg' },
+// Newest uploads first. Assign the next highest id and prepend new entries
+// so they appear at the top-left of the gallery (id DESC).
+const galleryImages: GalleryImage[] = [
+  {
+    id: 101,
+    src: '/assets/images/gallery/sri-lanka-tour-22.webp',
+    alt: 'Guest playing guitar during a friendly dinner gathering on a Sri Lanka tour',
+  },
+  {
+    id: 100,
+    src: '/assets/images/gallery/sri-lanka-tour-23.webp',
+    alt: 'Travelers enjoying a traditional Sri Lankan thali dinner with local hosts',
+  },
+  {
+    id: 99,
+    src: '/assets/images/gallery/sri-lanka-tour-24.webp',
+    alt: 'Local guide and traveler posing together outside a Sri Lankan guesthouse',
+  },
+  {
+    id: 98,
+    src: '/assets/images/gallery/sri-lanka-tour-25.webp',
+    alt: 'Guests in traditional sarees greeting with a local host in Sri Lanka',
+  },
+  {
+    id: 97,
+    src: '/assets/images/gallery/sri-lanka-tour-26.webp',
+    alt: 'Traveler posing on a sunny Sri Lankan beach with ocean waves and hillside views',
+  },
+  {
+    id: 96,
+    src: '/assets/images/gallery/sri-lanka-tour-27.webp',
+    alt: 'Visitors in colorful sarees at a scenic Sri Lankan tea plantation with mountain views',
+  },
+  {
+    id: 95,
+    src: '/assets/images/gallery/sri-lanka-tour-28.webp',
+    alt: 'Travelers posing for an outdoor selfie under blue skies during a Sri Lanka tour',
+  },
+  {
+    id: 94,
+    src: '/assets/images/gallery/sri-lanka-tour-29.webp',
+    alt: 'Local guide with tourists posing by the ocean on a Sri Lanka coastal tour',
+  },
   { id: 93, src: '/assets/images/gallery/sri-lanka-tour-21.jpeg' },
+  { id: 92, src: '/assets/images/gallery/sri-lanka-tour-20.jpeg' },
+  { id: 91, src: '/assets/images/gallery/sri-lanka-tour-19.jpeg' },
+  { id: 90, src: '/assets/images/gallery/sri-lanka-tour-18.jpeg' },
+  { id: 89, src: '/assets/images/gallery/sri-lanka-tour-17.jpeg' },
+  { id: 88, src: '/assets/images/gallery/sri-lanka-tour-16.jpeg' },
+  { id: 87, src: '/assets/images/gallery/sri-lanka-tour-15.jpeg' },
+  { id: 86, src: '/assets/images/gallery/sri-lanka-tour-14.jpeg' },
+  { id: 85, src: '/assets/images/gallery/sri-lanka-tour-13.jpeg' },
+  { id: 84, src: '/assets/images/gallery/sri-lanka-tour-12.jpeg' },
+  { id: 83, src: '/assets/images/gallery/sri-lanka-tour-11.jpeg' },
+  { id: 82, src: '/assets/images/gallery/sri-lanka-tour-10.jpeg' },
+  { id: 81, src: '/assets/images/gallery/sri-lanka-tour-09.jpeg' },
+  { id: 80, src: '/assets/images/gallery/sri-lanka-tour-08.jpeg' },
+  { id: 79, src: '/assets/images/gallery/sri-lanka-tour-07.jpeg' },
+  { id: 78, src: '/assets/images/gallery/sri-lanka-tour-06.jpeg' },
+  { id: 77, src: '/assets/images/gallery/sri-lanka-tour-05.jpeg' },
+  { id: 76, src: '/assets/images/gallery/sri-lanka-tour-04.jpeg' },
+  { id: 75, src: '/assets/images/gallery/sri-lanka-tour-03.jpeg' },
+  { id: 74, src: '/assets/images/gallery/sri-lanka-tour-02.jpeg' },
+  { id: 73, src: '/assets/images/gallery/sri-lanka-tour-01.jpeg' },
+  { id: 72, src: '/assets/images/gallery/72.jpeg' },
+  { id: 71, src: '/assets/images/gallery/71.jpeg' },
+  { id: 70, src: '/assets/images/gallery/70.jpeg' },
+  { id: 69, src: '/assets/images/gallery/69.jpeg' },
+  { id: 68, src: '/assets/images/gallery/68.jpeg' },
+  { id: 67, src: '/assets/images/gallery/67.jpeg' },
+  { id: 66, src: '/assets/images/gallery/66.jpeg' },
+  { id: 65, src: '/assets/images/gallery/65.jpeg' },
+  { id: 64, src: '/assets/images/gallery/64.jpeg' },
+  { id: 63, src: '/assets/images/gallery/63.jpeg' },
+  { id: 62, src: '/assets/images/gallery/62.jpeg' },
+  { id: 61, src: '/assets/images/gallery/61.jpeg' },
+  { id: 60, src: '/assets/images/gallery/60.jpeg' },
+  { id: 59, src: '/assets/images/gallery/59.jpeg' },
+  { id: 58, src: '/assets/images/gallery/58.jpeg' },
+  { id: 57, src: '/assets/images/gallery/57.jpeg' },
+  { id: 56, src: '/assets/images/gallery/56.jpeg' },
+  { id: 55, src: '/assets/images/gallery/55.jpeg' },
+  { id: 54, src: '/assets/images/gallery/54.jpeg' },
+  { id: 53, src: '/assets/images/gallery/53.jpeg' },
+  { id: 52, src: '/assets/images/gallery/52.jpeg' },
+  { id: 51, src: '/assets/images/gallery/51.jpeg' },
+  { id: 50, src: '/assets/images/gallery/50.jpeg' },
+  { id: 49, src: '/assets/images/gallery/49.jpeg' },
+  { id: 48, src: '/assets/images/gallery/48.jpeg' },
+  { id: 47, src: '/assets/images/gallery/47.jpeg' },
+  { id: 46, src: '/assets/images/gallery/46.jpeg' },
+  { id: 45, src: '/assets/images/gallery/45.jpeg' },
+  { id: 44, src: '/assets/images/gallery/44.jpeg' },
+  { id: 43, src: '/assets/images/gallery/43.jpeg' },
+  { id: 42, src: '/assets/images/gallery/42.jpeg' },
+  { id: 41, src: '/assets/images/gallery/41.jpeg' },
+  { id: 40, src: '/assets/images/gallery/40.jpeg' },
+  { id: 39, src: '/assets/images/gallery/39.jpeg' },
+  { id: 38, src: '/assets/images/gallery/38.jpeg' },
+  { id: 37, src: '/assets/images/gallery/37.jpeg' },
+  { id: 36, src: '/assets/images/gallery/36.jpeg' },
+  { id: 35, src: '/assets/images/gallery/35.jpeg' },
+  { id: 34, src: '/assets/images/gallery/34.jpeg' },
+  { id: 33, src: '/assets/images/gallery/33.jpeg' },
+  { id: 32, src: '/assets/images/gallery/32.jpeg' },
+  { id: 31, src: '/assets/images/gallery/31.jpeg' },
+  { id: 30, src: '/assets/images/gallery/30.jpeg' },
+  { id: 29, src: '/assets/images/gallery/29.jpeg' },
+  { id: 28, src: '/assets/images/gallery/28.jpeg' },
+  { id: 27, src: '/assets/images/gallery/27.jpeg' },
+  { id: 26, src: '/assets/images/gallery/26.jpeg' },
+  { id: 25, src: '/assets/images/gallery/25.jpeg' },
+  { id: 24, src: '/assets/images/gallery/24.webp' },
+  { id: 23, src: '/assets/images/gallery/23.webp' },
+  { id: 22, src: '/assets/images/gallery/22.webp' },
+  { id: 21, src: '/assets/images/gallery/21.jpg' },
+  { id: 20, src: '/assets/images/gallery/20.jpg' },
+  { id: 19, src: '/assets/images/gallery/19.jpg' },
+  { id: 18, src: '/assets/images/gallery/18.jpg' },
+  { id: 17, src: '/assets/images/gallery/17.jpg' },
+  { id: 16, src: '/assets/images/gallery/16.jpg' },
+  { id: 15, src: '/assets/images/gallery/15.jpg' },
+  { id: 14, src: '/assets/images/gallery/14.jpg' },
+  { id: 13, src: '/assets/images/gallery/13.jpg' },
+  { id: 12, src: '/assets/images/gallery/12.jpg' },
+  { id: 11, src: '/assets/images/gallery/11.jpg' },
+  { id: 10, src: '/assets/images/gallery/10.jpg' },
+  { id: 9, src: '/assets/images/gallery/9.jpg' },
+  { id: 8, src: '/assets/images/gallery/8.jpg' },
+  { id: 7, src: '/assets/images/gallery/7.jpg' },
+  { id: 6, src: '/assets/images/gallery/6.jpg' },
+  { id: 5, src: '/assets/images/gallery/5.jpg' },
+  { id: 4, src: '/assets/images/gallery/4.jpg' },
+  { id: 3, src: '/assets/images/gallery/3.jpg' },
+  { id: 2, src: '/assets/images/gallery/2.jpg' },
+  { id: 1, src: '/assets/images/gallery/1.jpg' },
 ];
 
 interface LightboxProps {
@@ -239,7 +287,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, activeIndex, onChangeIndex,
             >
               <Image
                 src={active.src}
-                alt="Gallery image"
+                alt={active.alt ?? DEFAULT_GALLERY_ALT}
                 fill
                 sizes="(max-width: 768px) 100vw, 1100px"
                 className="object-contain"
@@ -282,7 +330,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, activeIndex, onChangeIndex,
                   >
                     <Image
                       src={img.src}
-                      alt="Thumbnail image"
+                      alt={img.alt ?? DEFAULT_GALLERY_ALT}
                       fill
                       sizes="96px"
                       className="object-cover"
@@ -302,7 +350,11 @@ const Lightbox: React.FC<LightboxProps> = ({ images, activeIndex, onChangeIndex,
 const Gallery = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const images = useMemo(() => galleryImages, []);
+  // Always show newest uploads first (highest id = most recently added).
+  const images = useMemo(
+    () => [...galleryImages].sort((a, b) => b.id - a.id),
+    []
+  );
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0B1120]">
@@ -336,7 +388,7 @@ const Gallery = () => {
                   <div className="aspect-square overflow-hidden">
                     <Image
                       src={image.src}
-                      alt="Gallery image"
+                      alt={image.alt ?? DEFAULT_GALLERY_ALT}
                       width={800}
                       height={800}
                       className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
